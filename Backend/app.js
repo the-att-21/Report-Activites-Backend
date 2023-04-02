@@ -5,8 +5,8 @@ const port = process.env.PORT || 8000
 const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/userRoutes');
+const formRoutes = require('./routes/formRoutes');
 
-    ;
 const connectDB = (url) => {
     mongoose.connect(url);
     console.log(`connected successfully🟩`)
@@ -14,7 +14,7 @@ const connectDB = (url) => {
 
 app.use(express.json());
 app.use('/users', userRoutes);
-
+app.use('/forms', formRoutes);
 
 app.all('*', (req, res) => {
     res.send('Oops 404!');
