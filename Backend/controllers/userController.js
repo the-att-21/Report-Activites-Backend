@@ -9,7 +9,7 @@ const signUp = async (req, res) => {
     // User Creation 
     // Return token
 
-    const { username, password, email } = req.body;
+    const { username, password, email, branch} = req.body;
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -17,7 +17,7 @@ const signUp = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const result = await User.create({ username, password: hashedPassword, email });
+        const result = await User.create({ username, password: hashedPassword, email, branch});
 
         const token = jwt.sign({ email: result.email, id: result._id }, SECRET_KEY);
         res.status(201).json({ user: result, token });
