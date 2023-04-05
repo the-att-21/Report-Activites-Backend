@@ -16,7 +16,7 @@ const formSchema = new mongoose.Schema(
             required: true
         },
 
-        year: {
+        class_name: {
             type: String,
             default: 'null'
         },
@@ -26,7 +26,7 @@ const formSchema = new mongoose.Schema(
             required: true
         },
 
-        mode: {
+        mode_of_attendance: {
             type: String,
             required: true
         },
@@ -36,12 +36,12 @@ const formSchema = new mongoose.Schema(
             required: true
         },
 
-        s_date: {
+        start_date: {
             type: Date,
             // required: true
         },
 
-        e_date: {
+        end_date: {
             type: Date,
             // required: true
         },
@@ -56,19 +56,19 @@ const formSchema = new mongoose.Schema(
             required: true
         },
 
-        count: {
+        participants_count: {
             type: Number,
             required: true
         },
 
-        outcome: {
+        outcomes: {
             type: String,
             required: true
         },
 
         file: {
             type: String,
-            required: true
+            // required: true
         }
     }, { timestamps: true }
 );
