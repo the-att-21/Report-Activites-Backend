@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
 const formRoutes = require('./routes/formRoutes');
@@ -13,11 +14,12 @@ const connectDB = (url) => {
 }
 
 app.use(express.json());
+app.use(cors());
 app.use('/users', userRoutes);
 app.use('/forms', formRoutes);
 
 app.all('*', (req, res) => {
-    res.send('Oops 404!');
+    res.send('Oops! Invalid request!');
 });
 
 const start = async (url) => {
