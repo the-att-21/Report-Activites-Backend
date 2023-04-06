@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema(
 
         branch: {
             type: String,
+            default: null,
             required: true
         }
     }, { timestamps: true }

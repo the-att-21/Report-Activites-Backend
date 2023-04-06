@@ -28,10 +28,10 @@ const signUp = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, branch } = req.body;
 
     try {
-        const exsistingUser = await User.findOne({ username });
+        const exsistingUser = await User.findOne({ username, branch });
         if (!exsistingUser) {
             return res.status(404).json({ message: 'User does not exist' });
         }
