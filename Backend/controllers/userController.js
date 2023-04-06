@@ -40,7 +40,9 @@ const login = async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
-        res.status(201).json({ user: exsistingUser });
+
+        const token = jwt.sign({ email: exsistingUser.email, id: exsistingUser._id }, SECRET_KEY);
+        res.status(201).json({ user: exsistingUser, token });
     }
     catch (error) {
         res.status(500).json({ message: 'Something went wrong' });
