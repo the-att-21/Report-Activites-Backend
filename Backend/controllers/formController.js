@@ -39,6 +39,7 @@ const getspecific = async (req, res) => {
         // const department = req.params.branch
         const { department, class_name, course } = req.body;
         const form = await Form.find({ department, class_name, course })
+        console.log(department,class_name,course);
         res.status(200).json(form)
     } catch (error) {
         res.status(500).json(error)

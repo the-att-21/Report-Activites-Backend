@@ -5,7 +5,7 @@ const { createActivity, getActivities, getspecific, getDepartmentwise} = require
 router.post('/create', createActivity);
 router.get('/get', getActivities);
 router.get('/getbranchwise', getDepartmentwise);
-router.get('/getspecific', getspecific);
+router.post('/getspecific', getspecific);
 
 module.exports = router;
 
